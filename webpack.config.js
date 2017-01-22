@@ -29,7 +29,7 @@ module.exports = [
   {
     entry: './src/sass/main.scss',
     output: {
-      filename: 'main.css',
+      filename: 'styles.css',
       path: __dirname + '/dist/assets',
       publicPath: '/assets/'
     },
@@ -38,12 +38,12 @@ module.exports = [
         {
           test: /\.scss$/,
           exclude: /node_modules/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!sass-loader?sourceMap')
+          loader: ExtractTextPlugin.extract('css-loader?sourceMap!sass-loader?sourceMap')
         }
       ]
     },
     plugins: [
-      new ExtractTextPlugin('main.css')
+      new ExtractTextPlugin('styles.css')
     ]
   }
 ];
