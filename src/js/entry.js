@@ -1,4 +1,4 @@
-import '../sass/main.scss';
+import '../sass/master.scss';
 import phrase from './app';
 
 const message = document.createElement('h1');
