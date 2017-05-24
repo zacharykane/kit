@@ -1,8 +1,8 @@
-{
+module.exports = {
     "env": {
         "browser": true,
-        "commonjs": true,
-        "es6": true
+        "es6": true,
+        "commonjs": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -15,7 +15,7 @@
         ],
         "linebreak-style": [
             "error",
-            "windows"
+            "unix"
         ],
         "quotes": [
             "error",
@@ -26,4 +26,4 @@
             "always"
         ]
     }
-}
+};

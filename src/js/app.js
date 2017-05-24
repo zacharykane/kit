@@ -1,3 +1,3 @@
-const phrase = 'hey there.';
+const phrase = 'hey there!';
 
 module.exports = phrase;
