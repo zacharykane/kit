@@ -54,11 +54,7 @@ module.exports = [
         },
         devServer: {
             publicPath: '/dist/',
-            contentBase: path.join(__dirname, 'dev-server'),
-            host: '0.0.0.0',
-            watchOptions: {
-                poll: 1000
-            }
+            contentBase: path.join(__dirname, 'webpack-dev-server')
         }
     }
 ];

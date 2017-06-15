@@ -1,9 +1,10 @@
 body {
-  color: $title-color;
-  margin: 0;
-  padding: 0;
+  color: $text-color;
+  font-family: $text-family;
+  font-size: $text-size;
 
   h1 {
-    font-family: sans-serif;
+    font-family:  $heading-family;
+    font-size: $text-size * 3;
   }
 }
