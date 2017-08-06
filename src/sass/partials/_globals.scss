@@ -1,10 +1,10 @@
 body {
-  color: $text-color;
-  font-family: $text-family;
-  font-size: $text-size;
+    color: $text-color;
+    font-family: $text-family;
+    font-size: $text-size;
 
-  h1 {
-    font-family:  $heading-family;
-    font-size: $text-size * 3;
-  }
+    h1 {
+        font-family: $heading-family;
+        font-size: $text-size * 3;
+    }
 }

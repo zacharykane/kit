@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = [
     {
@@ -51,17 +53,18 @@ module.exports = [
                 }
             ]
         },
+        plugins: [
+            new HtmlWebpackPlugin({
+                filename: path.resolve(__dirname, 'public', 'index.html'),
+                template: path.resolve(__dirname, 'src', 'index.ejs')
+            })
+        ],
         devServer: {
             publicPath: '/public/',
-            contentBase: path.join(__dirname, 'webpack-dev-server'),
-            hot: true,
-            host: "0.0.0.0"
+            contentBase: path.join(__dirname, 'webpack-dev-server')
         },
         watchOptions: {
             poll: true
-        },
-        plugins: [
-            new webpack.HotModuleReplacementPlugin()
-        ]
+        }
     }
 ];

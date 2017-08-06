@@ -7,7 +7,7 @@ Here is a very simple, typical, extendable/delete-able client-side web setup. I 
 ```
 npm start
 ```
-Start a Webpack Dev Server with hot reloading, source maps & automatic opening of index
+Start a Webpack Dev Server with hot reloading
 
 ```
 npm run watch
@@ -17,4 +17,4 @@ Webpack the JS and Sass with source maps and watch for updates
 ```
 npm run build
 ```
-Webpack the JS and Sass for production
+Webpack the JS and Sass for production, generate HTML index
