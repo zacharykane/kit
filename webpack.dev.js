@@ -5,12 +5,12 @@ module.exports = [
     {
         devtool: 'inline-source-map',
         entry: {
-            bundle: './src/js/entry.js'
+            bundle: './src/js/entry.js',
         },
         output: {
             filename: '[name].js',
             path: path.resolve(__dirname, 'public'),
-            publicPath: '/public/'
+            publicPath: '/public/',
         },
         module: {
             rules: [
@@ -21,7 +21,7 @@ module.exports = [
                     loader: 'eslint-loader',
                     options: {
                         failOnError: true,
-                    }
+                    },
                 },
                 {
                     test: /\.js$/,
@@ -33,31 +33,32 @@ module.exports = [
                     exclude: /node_modules/,
                     use: [
                         {
-                            loader: 'style-loader'
+                            loader: 'style-loader',
                         },
                         {
                             loader: 'css-loader',
                             options: {
-                                sourceMap: true
-                            }
+                                sourceMap: true,
+                            },
                         },
                         {
                             loader: 'sass-loader',
                             options: {
-                                sourceMap: true
-                            }
-                        }
-                    ]
-                }
-            ]
+                                sourceMap: true,
+                            },
+                        },
+                    ],
+                },
+            ],
         },
         devServer: {
             publicPath: '/public/',
             contentBase: path.join(__dirname, 'webpack-dev-server'),
-            hot: true,
+            overlay: {
+                warnings: true,
+                errors: true,
+            },
+            stats: 'errors-only',
         },
-        plugins: [
-            new webpack.HotModuleReplacementPlugin()
-        ]
-    }
+    },
 ];
