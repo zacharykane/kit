@@ -5,7 +5,7 @@
   "scripts": {
     "docker": "docker run -d -p 8080:8080 -p 80:80 -v e:\\Dev\\kit:/usr/src/app zacharykane/kit",
     "start": "cross-env NODE_ENV=development webpack-dev-server --env=dev",
-    "build": "rimraf public/* && cross-env NODE_ENV=production webpack --env=prod --progress",
+    "build": "rimraf public/* && cross-env NODE_ENV=production webpack --env=prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -55,10 +55,6 @@ module.exports = [
             publicPath: '/public/',
             contentBase: path.join(__dirname, 'webpack-dev-server'),
             hot: true,
-            host: "0.0.0.0"
-        },
-        watchOptions: {
-            poll: true
         },
         plugins: [
             new webpack.HotModuleReplacementPlugin()
