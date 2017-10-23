@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "webpack-dev-server --env.development",
     "build": "webpack --env.production",
+    "image": "docker build -t zacharykane/kit .",
+    "docker-dev": "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit dev",
+    "docker-build": "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -9,7 +9,7 @@ module.exports = function(env) {
     const config = {
         entry: {
             main: './src/js/entry.js',
-            vendor: ['lodash'],
+            vendor: ['moment'],
         },
         output: {
             filename: '[name].js',
@@ -25,6 +25,12 @@ module.exports = function(env) {
         },
         module: {
             rules: [
+                {
+                    enforce: 'pre',
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    loader: 'eslint-loader',
+                },
                 {
                     test: /\.js$/,
                     exclude: /node_modules/,
@@ -50,11 +56,11 @@ module.exports = function(env) {
         plugins: [
             new CleanWebpackPlugin(['public']),
             new ExtractTextPlugin({
-                filename: '[name].[contenthash].css',
+                filename: '[name].css',
                 disable: !!env.production,
             }),
             new HtmlWebpackPlugin({
-                title: 'Development',
+                title: 'Development | Kit',
                 template: './src/template.ejs',
             }),
             new webpack.HashedModuleIdsPlugin(),
@@ -70,16 +76,32 @@ module.exports = function(env) {
     if (env.production) {
         config.output.filename = '[name].[chunkhash].js';
         config.devtool = 'source-maps';
-        config.plugins.push(
-            new UglifyJSPlugin({
-                sourceMap: true,
-            }),
+        config.plugins = [
             new webpack.DefinePlugin({
                 'process.env': {
                     NODE_ENV: JSON.stringify('production'),
                 },
             }),
-        );
+            new CleanWebpackPlugin(['public']),
+            new ExtractTextPlugin({
+                filename: '[name].[contenthash].css',
+                disable: !!env.production,
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Kit',
+                template: './src/template.ejs',
+            }),
+            new webpack.HashedModuleIdsPlugin(),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'vendor',
+            }),
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'runtime',
+            }),
+            new UglifyJSPlugin({
+                sourceMap: true,
+            }),
+        ];
     }
 
     return config;
