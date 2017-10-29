@@ -1,2 +1,3 @@
 public/*
-webpack.*.js
+webpack.config.js
+package.json
