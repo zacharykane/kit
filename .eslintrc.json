@@ -10,7 +10,7 @@
   },
   "rules": {
     "linebreak-style": ["error", "unix"],
-    "prettier/prettier": ["error", { "singleQuote": true, "tabWidth": 4 }]
+    "prettier/prettier": ["error", { "singleQuote": true, "tabWidth": 4, "printWidth": 150 }]
   },
   "plugins": ["prettier"]
 }

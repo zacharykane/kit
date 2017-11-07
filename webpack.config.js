@@ -30,6 +30,9 @@ module.exports = function(env) {
                     test: /\.js$/,
                     exclude: /node_modules/,
                     loader: 'eslint-loader',
+                    options: {
+                        failOnError: true
+                    }
                 },
                 {
                     test: /\.js$/,
