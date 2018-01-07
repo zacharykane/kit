@@ -4,13 +4,29 @@
     "commonjs": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended"
+  ],
   "parserOptions": {
-    "sourceType": "module"
+    "ecmaVersion": 8,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   },
   "rules": {
     "linebreak-style": ["error", "unix"],
-    "prettier/prettier": ["error", { "singleQuote": true, "tabWidth": 4, "printWidth": 150 }]
-  },
-  "plugins": ["prettier"]
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "tabWidth": 4,
+        "printWidth": 80,
+        "trailingComma": "all"
+      }
+    ]
+  }
 }

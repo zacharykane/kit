@@ -1,3 +1,4 @@
+/*eslint-env node*/
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,7 +9,10 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = function(env) {
     const config = {
         entry: {
-            main: './src/js/entry.js',
+            main: [
+                './node_modules/regenerator-runtime/runtime.js',
+                './src/js/entry.js',
+            ],
             vendor: ['moment'],
         },
         output: {
@@ -31,8 +35,8 @@ module.exports = function(env) {
                     exclude: /node_modules/,
                     loader: 'eslint-loader',
                     options: {
-                        failOnError: true
-                    }
+                        failOnError: true,
+                    },
                 },
                 {
                     test: /\.js$/,
@@ -60,21 +64,51 @@ module.exports = function(env) {
             new CleanWebpackPlugin(['public']),
             new ExtractTextPlugin({
                 filename: '[name].css',
-                disable: !!env.production,
+                disable: true,
             }),
             new HtmlWebpackPlugin({
                 title: 'Development | Kit',
                 template: './src/template.ejs',
             }),
-            new webpack.HashedModuleIdsPlugin(),
+            new webpack.NamedModulesPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
+                minChunks: function(module) {
+                    return (
+                        module.context &&
+                        module.context.indexOf('node_modules') !== -1
+                    );
+                },
             }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'runtime',
+                minChunks: Infinity,
             }),
         ],
     };
+
+    if (env.testing) {
+        config.entry = {
+            'browser-testing': [
+                './node_modules/regenerator-runtime/runtime.js',
+                './src/js/entry.test.js',
+            ],
+        };
+        config.node = {
+            fs: 'empty',
+        };
+        config.plugins = [
+            new CleanWebpackPlugin(['public']),
+            new ExtractTextPlugin({
+                filename: '[name].css',
+                disable: true,
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Testing | Kit',
+                template: './src/template.ejs',
+            }),
+        ];
+    }
 
     if (env.production) {
         config.output.filename = '[name].[chunkhash].js';
@@ -88,7 +122,7 @@ module.exports = function(env) {
             new CleanWebpackPlugin(['public']),
             new ExtractTextPlugin({
                 filename: '[name].[contenthash].css',
-                disable: !!env.production,
+                disable: false,
             }),
             new HtmlWebpackPlugin({
                 title: 'Kit',
@@ -97,9 +131,16 @@ module.exports = function(env) {
             new webpack.HashedModuleIdsPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
+                minChunks: function(module) {
+                    return (
+                        module.context &&
+                        module.context.indexOf('node_modules') !== -1
+                    );
+                },
             }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'runtime',
+                minChunks: Infinity,
             }),
             new UglifyJSPlugin({
                 sourceMap: true,

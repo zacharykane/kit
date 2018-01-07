@@ -1,0 +1,1 @@
+import './createComponent.test.js';
