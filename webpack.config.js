@@ -51,9 +51,17 @@ module.exports = function(env) {
                         use: [
                             {
                                 loader: 'css-loader',
+                                options: {
+                                    sourceMap: true,
+                                    minimize: true,
+                                    importLoaders: 1,
+                                },
                             },
                             {
                                 loader: 'sass-loader',
+                                options: {
+                                    sourceMap: true,
+                                },
                             },
                         ],
                     }),
