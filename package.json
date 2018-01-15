@@ -8,16 +8,19 @@
     "build-test": "webpack --env.testing",
     "test": "babel-tape-runner src/**/*.test.js | faucet",
     "image": "docker build -t zacharykane/kit .",
-    "docker-dev":
-      "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit dev",
-    "docker-build":
-      "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit build"
+    "docker-dev": "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit dev",
+    "docker-build": "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zacharykane/kit.git"
   },
-  "keywords": ["starter", "development", "client", "es2017"],
+  "keywords": [
+    "starter",
+    "development",
+    "client",
+    "es2017"
+  ],
   "author": "zacharykane",
   "license": "MIT",
   "bugs": {
@@ -41,9 +44,11 @@
     "faucet": "0.0.1",
     "html-webpack-plugin": "^2.30.1",
     "jsdom": "^11.5.1",
-    "node-sass": "^4.7.2",
+    "postcss": "^6.0.16",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.10",
     "prettier": "^1.9.2",
-    "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "stylelint": "^8.4.0",
     "stylelint-config-standard": "^18.0.0",
@@ -58,5 +63,8 @@
     "regenerator": "^0.12.3",
     "tap-html": "^0.2.0"
   },
-  "browserslist": ["> 1%", "last 2 versions"]
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }

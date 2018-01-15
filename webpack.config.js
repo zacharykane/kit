@@ -44,7 +44,7 @@ module.exports = function(env) {
                     loader: 'babel-loader',
                 },
                 {
-                    test: /\.scss$/,
+                    test: /\.css$/,
                     exclude: /node_modules/,
                     use: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
@@ -58,7 +58,7 @@ module.exports = function(env) {
                                 },
                             },
                             {
-                                loader: 'sass-loader',
+                                loader: 'postcss-loader',
                                 options: {
                                     sourceMap: true,
                                 },

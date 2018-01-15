@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import '../sass/master.scss';
+import '../css/master.css';
 import createComponent from './createComponent';
 
 const header = createComponent('h1', 'Article Title!');

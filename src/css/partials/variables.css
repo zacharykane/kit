@@ -1,0 +1,6 @@
+:root {
+    --text-family: Verdana, sans-serif;
+    --text-color: hsl(90deg 90% 10%);
+    --text-size: 20px;
+    --heading-family: Georgia, serif;
+}
