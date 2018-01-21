@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = function(env) {
@@ -71,13 +72,14 @@ module.exports = function(env) {
         plugins: [
             new CleanWebpackPlugin(['public']),
             new ExtractTextPlugin({
-                filename: '[name].css',
+                filename: 'theme.css',
                 disable: true,
             }),
             new HtmlWebpackPlugin({
                 title: 'Development | Kit',
                 template: './src/template.ejs',
             }),
+            new StyleLintPlugin(),
             new webpack.NamedModulesPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
@@ -108,13 +110,14 @@ module.exports = function(env) {
         config.plugins = [
             new CleanWebpackPlugin(['public']),
             new ExtractTextPlugin({
-                filename: '[name].css',
+                filename: 'theme.css',
                 disable: true,
             }),
             new HtmlWebpackPlugin({
                 title: 'Testing | Kit',
                 template: './src/template.ejs',
             }),
+            new StyleLintPlugin(),
         ];
     }
 
@@ -129,13 +132,14 @@ module.exports = function(env) {
             }),
             new CleanWebpackPlugin(['public']),
             new ExtractTextPlugin({
-                filename: '[name].[contenthash].css',
+                filename: 'theme.[contenthash].css',
                 disable: false,
             }),
             new HtmlWebpackPlugin({
                 title: 'Kit',
                 template: './src/template.ejs',
             }),
+            new StyleLintPlugin(),
             new webpack.HashedModuleIdsPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
