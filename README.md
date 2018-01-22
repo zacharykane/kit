@@ -7,9 +7,11 @@ Here is a very simple, typical, extendable/delete-able client-side web setup. I 
 ```
 npm run dev
 ```
+
 Start a Webpack Dev Server with hot reloading
 
 ```
 npm run build
 ```
+
 Webpack the JS and Sass for production, generate HTML index
