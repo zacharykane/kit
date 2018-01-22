@@ -1,7 +1,9 @@
 import moment from 'moment';
 
 import '../sass/master.scss';
-import createComponent from './createComponent';
+import { createComponent } from './createComponent';
+import { future } from './async-await';
+import { obj, entries, values } from './spread-rest';
 
 const header = createComponent('h1', 'Article Title!');
 const time = createComponent('div', moment().format('MMMM Do YYYY, h:mm:ss a'));
@@ -15,36 +17,12 @@ root.appendChild(header);
 root.appendChild(time);
 root.appendChild(message);
 
-const ob = {
-    k: 'value',
-};
-
-const obj = {
-    ...ob,
-    another: 'value',
-    yet: 'more',
-};
-
-async function future() {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    const isHeads = Boolean(Math.round(Math.random()));
-
-    if (isHeads) {
-        return 'heads';
-    }
-
-    throw Error('tails');
-}
-
-async function foo() {
-    try {
-        return await future();
-    } catch (e) {
-        root.appendChild(createComponent('p', e.message));
-    }
-}
-
-foo();
-
 root.appendChild(createComponent('p', obj.k));
+root.appendChild(createComponent('p', entries));
+root.appendChild(createComponent('p', values));
+
+future()
+    .then(result => {
+        root.appendChild(createComponent('p', result));
+    })
+    .catch(result => root.appendChild(createComponent('p', result.message)));

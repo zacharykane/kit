@@ -5,4 +5,4 @@ const createComponent = (tag, content) => {
     return element;
 };
 
-module.exports = createComponent;
+export { createComponent };
