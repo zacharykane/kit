@@ -45,7 +45,7 @@ module.exports = function(env) {
                     loader: 'babel-loader',
                 },
                 {
-                    test: /\.scss$/,
+                    test: /\.css$/,
                     exclude: /node_modules/,
                     use: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
@@ -59,7 +59,7 @@ module.exports = function(env) {
                                 },
                             },
                             {
-                                loader: 'sass-loader',
+                                loader: 'postcss-loader',
                                 options: {
                                     sourceMap: true,
                                 },
@@ -71,14 +71,6 @@ module.exports = function(env) {
         },
         plugins: [
             new CleanWebpackPlugin(['public']),
-            new ExtractTextPlugin({
-                filename: 'theme.css',
-                disable: true,
-            }),
-            new HtmlWebpackPlugin({
-                title: 'Development | Kit',
-                template: './src/template.ejs',
-            }),
             new StyleLintPlugin(),
             new webpack.NamedModulesPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
@@ -93,6 +85,14 @@ module.exports = function(env) {
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'runtime',
                 minChunks: Infinity,
+            }),
+            new ExtractTextPlugin({
+                filename: 'theme.css',
+                disable: true,
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Development | Kit',
+                template: './src/template.ejs',
             }),
         ],
     };
@@ -109,6 +109,7 @@ module.exports = function(env) {
         };
         config.plugins = [
             new CleanWebpackPlugin(['public']),
+            new StyleLintPlugin(),
             new ExtractTextPlugin({
                 filename: 'theme.css',
                 disable: true,
@@ -117,7 +118,6 @@ module.exports = function(env) {
                 title: 'Testing | Kit',
                 template: './src/template.ejs',
             }),
-            new StyleLintPlugin(),
         ];
     }
 
@@ -131,14 +131,6 @@ module.exports = function(env) {
                 },
             }),
             new CleanWebpackPlugin(['public']),
-            new ExtractTextPlugin({
-                filename: 'theme.[contenthash].css',
-                disable: false,
-            }),
-            new HtmlWebpackPlugin({
-                title: 'Kit',
-                template: './src/template.ejs',
-            }),
             new StyleLintPlugin(),
             new webpack.HashedModuleIdsPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
@@ -156,6 +148,14 @@ module.exports = function(env) {
             }),
             new UglifyJSPlugin({
                 sourceMap: true,
+            }),
+            new ExtractTextPlugin({
+                filename: 'theme.[contenthash].css',
+                disable: false,
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Kit',
+                template: './src/template.ejs',
             }),
         ];
     }

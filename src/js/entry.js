@@ -1,9 +1,9 @@
 import moment from 'moment';
 
-import '../sass/master.scss';
+import '../css/master.css';
 import { createComponent } from './createComponent';
 import { future } from './async-await';
-import { obj, entries, values } from './spread-rest';
+import { obj2, entries, values } from './spread-rest';
 
 const header = createComponent('h1', 'Article Title!');
 const time = createComponent('div', moment().format('MMMM Do YYYY, h:mm:ss a'));
@@ -17,7 +17,7 @@ root.appendChild(header);
 root.appendChild(time);
 root.appendChild(message);
 
-root.appendChild(createComponent('p', obj.k));
+root.appendChild(createComponent('p', obj2.k));
 root.appendChild(createComponent('p', entries));
 root.appendChild(createComponent('p', values));
 

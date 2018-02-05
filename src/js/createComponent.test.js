@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import createComponent from './createComponent';
+import { createComponent } from './createComponent';
 
 test('createComponent', assert => {
     const element = createComponent('h1', 'Testing');
