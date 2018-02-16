@@ -14,7 +14,6 @@ module.exports = function(env) {
                 './node_modules/regenerator-runtime/runtime.js',
                 './src/js/entry.js',
             ],
-            vendor: ['moment'],
         },
         output: {
             filename: '[name].js',
@@ -23,10 +22,7 @@ module.exports = function(env) {
         devtool: 'eval',
         devServer: {
             contentBase: './public',
-            host: '0.0.0.0',
-            watchOptions: {
-                poll: true,
-            },
+            hot: true,
         },
         module: {
             rules: [
@@ -71,8 +67,9 @@ module.exports = function(env) {
         },
         plugins: [
             new CleanWebpackPlugin(['public']),
-            new StyleLintPlugin(),
-            new webpack.NamedModulesPlugin(),
+            new StyleLintPlugin({
+                failOnError: true,
+            }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
                 minChunks: function(module) {
@@ -86,6 +83,8 @@ module.exports = function(env) {
                 name: 'runtime',
                 minChunks: Infinity,
             }),
+            new webpack.NamedModulesPlugin(),
+            new webpack.HotModuleReplacementPlugin(),
             new ExtractTextPlugin({
                 filename: 'theme.css',
                 disable: true,
@@ -109,7 +108,6 @@ module.exports = function(env) {
         };
         config.plugins = [
             new CleanWebpackPlugin(['public']),
-            new StyleLintPlugin(),
             new ExtractTextPlugin({
                 filename: 'theme.css',
                 disable: true,
@@ -126,12 +124,12 @@ module.exports = function(env) {
         config.devtool = 'source-maps';
         config.plugins = [
             new webpack.DefinePlugin({
-                'process.env': {
-                    NODE_ENV: JSON.stringify('production'),
-                },
+                'process.env.NODE_ENV': JSON.stringify('production'),
             }),
             new CleanWebpackPlugin(['public']),
-            new StyleLintPlugin(),
+            new StyleLintPlugin({
+                failOnError: true,
+            }),
             new webpack.HashedModuleIdsPlugin(),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
@@ -149,6 +147,7 @@ module.exports = function(env) {
             new UglifyJSPlugin({
                 sourceMap: true,
             }),
+            new webpack.optimize.ModuleConcatenationPlugin(),
             new ExtractTextPlugin({
                 filename: 'theme.[contenthash].css',
                 disable: false,

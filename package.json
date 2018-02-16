@@ -6,12 +6,7 @@
     "start": "webpack-dev-server --env.development",
     "build": "webpack --env.production",
     "build-dom-test": "webpack --env.testing",
-    "test": "babel-tape-runner src/**/*.test.js | faucet",
-    "image": "./scripts/build-image.sh",
-    "docker-dev":
-      "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit dev",
-    "docker-build":
-      "docker run -it -p 8080:8080 --rm -v ~/Documents/GitHub/kit/:/app -v /app/node_modules zacharykane/kit build"
+    "test": "babel-tape-runner src/**/*.test.js | faucet"
   },
   "repository": {
     "type": "git",

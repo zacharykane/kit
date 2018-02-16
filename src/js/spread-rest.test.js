@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { ob, obj, values, entries } from './spread-rest';
+import { obj1, obj2, values, entries } from './spread-rest';
 
 test('object values', assert => {
     assert.deepEqual(
@@ -21,9 +21,9 @@ test('object entries', assert => {
 });
 
 test('object entries', assert => {
-    assert.deepEqual(ob, { k: 'value' }, 'Object.entries() works');
+    assert.deepEqual(obj1, { k: 'value' }, 'Object.entries() works');
     assert.deepEqual(
-        obj,
+        obj2,
         { k: 'value', another: 'value', yet: 'more' },
         'Object.entries() works',
     );
