@@ -1,2 +1,2 @@
 import './createComponent.test';
-import './spread-rest.test.js';
+import './spreadRest.test.js';

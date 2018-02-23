@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { obj1, obj2, values, entries } from './spread-rest';
+import { obj1, obj2, values, entries } from './spreadRest';
 
 test('object values', assert => {
     assert.deepEqual(
