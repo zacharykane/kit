@@ -1,6 +1,6 @@
 # kit
 
-Here is a very simple, typical, extendable/delete-able client-side web setup. I wanted something I could reference for future projects without having to rewrite all of the usual tooling.
+Here is a very simple, typical, extendable, delete-able client-side web setup. I wanted something I could reference for future projects without having to rewrite all of the usual tooling.
 
 The bulk of this repo is concerned with dev-dependencies. The few actual source files are included just to test the setup's compatibility/support for features. I wanted something that keeps (or attempts to keep) current with best practices and useful utilities. Whether this is used to setup a simple brochure website, complex web application, or something in between or beyond should be irrelevant to the included utilities.
 
@@ -9,7 +9,7 @@ The `master` branch is concerned with ES8 JavaScript and PostCSS styling. Other 
 ## Major features
 
 * webpack & babel, configured for ES8 & PostCSS bundling & transpiling
-* babel setup for native es6 modules and rest/spread support
+* babel setup for native es6 modules and es8 support
 * CSSNext from PostCSS (includes Autoprefixer)
 * ESLint & Stylelint for hinting/enforcement
 * Tape for unit testing
@@ -21,6 +21,8 @@ The `master` branch is concerned with ES8 JavaScript and PostCSS styling. Other 
 Webpack is configured for development, testing, and production. The config generates an `index.html` based on the source `EJS` template. Under development, `webpack-dev-server` provides a local hosting environment. The stylesheet is extracted during production to a standalone file. Node modules and webpack's runtime are extracted into their own bundles as well.
 
 ESLint and Stylelint (backed by Prettier) are configured to enforce four space tabs, single quotes, an eighty character line limit, & trailing commas. JSON files are excepted.
+
+The HTML template and associated meta files are based on HTML5 Boilerplate.
 
 ## Scripts
 

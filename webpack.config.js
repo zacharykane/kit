@@ -17,7 +17,7 @@ module.exports = function(env) {
         },
         output: {
             filename: '[name].js',
-            path: path.resolve(__dirname, 'public'),
+            path: path.resolve(__dirname, 'public', 'dist'),
         },
         devtool: 'cheap-module-eval-source-map',
         devServer: {
@@ -103,7 +103,7 @@ module.exports = function(env) {
         };
         config.module.rules = [];
         config.plugins = [
-            new CleanWebpackPlugin(['public']),
+            new CleanWebpackPlugin([path.resolve('public', 'dist')]),
             new ExtractTextPlugin({
                 filename: 'theme.css',
                 disable: true,
@@ -159,7 +159,10 @@ module.exports = function(env) {
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': JSON.stringify('production'),
             }),
-            new CleanWebpackPlugin(['public']),
+            new CleanWebpackPlugin([
+                path.resolve('public', 'dist'),
+                'public/index.html',
+            ]),
             new StyleLintPlugin({
                 failOnError: true,
             }),
@@ -187,6 +190,7 @@ module.exports = function(env) {
             new HtmlWebpackPlugin({
                 title: 'Kit',
                 template: './src/template.ejs',
+                filename: path.resolve('public', 'index.html'),
             }),
         ];
     }
