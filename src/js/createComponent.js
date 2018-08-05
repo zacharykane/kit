@@ -16,4 +16,4 @@ const createComponent = (tag, content, attributes, properties) => {
     return element;
 };
 
-export { createComponent };
+export default createComponent;

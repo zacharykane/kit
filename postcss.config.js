@@ -1,3 +1,2 @@
-module.exports = {
-    plugins: [require('postcss-import'), require('postcss-cssnext')],
-};
+/* eslint-env node */
+module.exports = {};

@@ -1,14 +1,5 @@
-export const obj1 = {
-    k: 'value',
-};
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
 
-export const obj2 = {
-    ...obj1,
-    another: 'value',
-    yet: 'more',
-};
+let n = { x, y, ...z };
 
-const values = Object.values(obj2);
-const entries = Object.entries(obj2);
-
-export { entries, values };
+export { x, y, z, n };
