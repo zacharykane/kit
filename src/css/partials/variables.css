@@ -1,6 +1,7 @@
 :root {
     --text-family: Verdana, sans-serif;
     --text-color: hsl(300deg 100% 25%);
-    --text-size: 20px;
+
     --heading-family: Georgia, serif;
+    --text-size: 20px;
 }

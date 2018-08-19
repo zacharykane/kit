@@ -3,9 +3,10 @@
     ["env", {
       "debug": true,
       "modules": false,
+      "useBuiltins": false,
       "targets": {
         "browsers": [
-          ">0.25%",
+          "> 1%",
           "not ie 11",
           "not op_mini all"
         ]
@@ -14,12 +15,6 @@
   ],
   "plugins": [
     "transform-object-rest-spread",
-    "transform-class-properties",
-    ["transform-runtime", {
-      "helpers": false,
-      "polyfill": false,
-      "regenerator": true,
-      "moduleName": "babel-runtime"
-    }]
+    "transform-class-properties"
   ]
 }

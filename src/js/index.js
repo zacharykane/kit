@@ -1,4 +1,6 @@
 /* eslint-disable */
+import '../css/master.css';
+
 import createComponent from './createComponent';
 import AClass from './classes';
 import { x, y, z, n } from './spreadRest';
@@ -77,7 +79,7 @@ document.body.appendChild(
 document.body.appendChild(
     createComponent(
         'button',
-        'Flip Coin',
+        'Flip a Coin',
         [],
         [
             {
@@ -87,7 +89,6 @@ document.body.appendChild(
                         const result = await future();
                         document.body.appendChild(createComponent('p', result));
                     } catch (error) {
-                        console.log(error);
                         document.body.appendChild(
                             createComponent('p', error.message),
                         );
