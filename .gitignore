@@ -1,5 +1,6 @@
 node_modules/
 public/dist/
+public/index.html
 
 # my own personal notes
 Notes.md

@@ -6,7 +6,7 @@
   "trailingComma": "all",
   "overrides": [
     {
-      "files": ["*.json", ".*.json", "public/site.webmanifest"],
+      "files": [".*", "*.json", ".*.json", "public/site.webmanifest"],
       "options": {
         "parser": "json",
         "tabWidth": 2,

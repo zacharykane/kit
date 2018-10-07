@@ -1,3 +1,12 @@
+/* eslint-env node */
+const postcssPresetEnv = require('postcss-preset-env');
 module.exports = {
-    plugins: [require('postcss-import'), require('postcss-cssnext')],
+    plugins: [
+        postcssPresetEnv({
+            stage: 2,
+            features: {
+                'nesting-rules': true,
+            },
+        }),
+    ],
 };

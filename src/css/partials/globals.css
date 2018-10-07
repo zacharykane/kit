@@ -1,10 +1,11 @@
 body {
-    color: var(--text-color);
-    font-size: var(--text-size);
     font-family: var(--text-family);
+    font-size: var(--text-size);
+    color: var(--text-color);
 
     & h1 {
-        font-size: calc(var(--text-size) * 3);
         font-family: var(--heading-family);
+        font-size: calc(var(--text-size) * 3);
+        color: #444444;
     }
 }

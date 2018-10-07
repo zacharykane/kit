@@ -1,11 +1,12 @@
 export const obj1 = {
-    k: 'value',
+    key1: 'value1',
+    key2: 'value2',
 };
 
 export const obj2 = {
     ...obj1,
-    another: 'value',
-    yet: 'more',
+    key3: 'value3',
+    key4: 'value4',
 };
 
 const values = Object.values(obj2);

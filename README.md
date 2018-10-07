@@ -8,13 +8,15 @@ The `master` branch is concerned with ES8 JavaScript and PostCSS styling. Other 
 
 ## Major features
 
-* webpack & babel, configured for ES8 & PostCSS bundling & transpiling
-* babel setup for native es6 modules and es8 support
-* CSSNext from PostCSS (includes Autoprefixer)
-* ESLint & Stylelint for hinting/enforcement
-* Tape for unit testing
-* Prettier to stave off needless (re)formatting
-* Editorconfig to hopefully hint at how I type
+-   public files based off HTML5 Boilerplate
+-   webpack & webpack-dev-server for bundling and local server development
+-   Babel setup for native es6 modules and es8 support
+-   PostCSS Preset Env from PostCSS (includes Autoprefixer)
+-   ESLint & Stylelint for hinting/enforcement
+-   Tape for unit testing
+-   Prettier to stave off needless (re)formatting
+-   browserlist for optimium and more realistic requirements
+-   Editorconfig to hopefully hint at how I type
 
 ## Further explanations
 
