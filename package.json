@@ -1,6 +1,6 @@
 {
   "name": "kit",
-  "version": "3.4.0",
+  "version": "4.0.0",
   "description": "a simple client-side development setup",
   "sideEffects": [
     "*.css"
@@ -17,8 +17,7 @@
   "keywords": [
     "starter",
     "development",
-    "client",
-    "es2017"
+    "client"
   ],
   "author": "zacharykane",
   "license": "MIT",

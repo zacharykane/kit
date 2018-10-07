@@ -1,7 +1,7 @@
 import Bork from './class';
 import { entries, values } from './spreadRest';
 import { future } from './asyncAwait';
-import { createComponent } from './createComponent';
+import createComponent from './createComponent';
 
 import '../css/master.css';
 
