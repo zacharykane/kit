@@ -2,6 +2,8 @@ import Bork from './class';
 import { entries, values } from './spreadRest';
 import { future } from './asyncAwait';
 import createComponent from './createComponent';
+import generator from './generators';
+import fibonacci from './iterators';
 
 import '../css/master.css';
 
@@ -31,18 +33,20 @@ console.log(Bork.staticFunction()); // > "babelIsCool"
 
 console.log(entries, values);
 
-async function flip() {
-    try {
-        const result = await future();
-        console.log(result);
-        render(createComponent('p', result));
-    } catch (error) {
-        console.log(error.message);
-        render(createComponent('p', error.message));
-    }
+for (var n of fibonacci) {
+    // truncate the sequence at 1000
+    if (n > 1000) break;
+    render(
+        createComponent('span', n, [
+            {
+                name: 'style',
+                value: 'margin-right: 20px',
+            },
+        ]),
+    );
 }
 
-flip();
+const iterator = generator();
 
 render(
     createComponent('button', 'Flip coin', null, [
@@ -51,9 +55,23 @@ render(
             value: async () => {
                 try {
                     const result = await future();
-                    render(createComponent('p', result));
+                    const pull = iterator.next();
+                    render(
+                        createComponent(
+                            'p',
+                            `Coin flip result: ${result},
+                            Generator pull: ${pull.value} ${pull.done}`,
+                        ),
+                    );
                 } catch (error) {
-                    render(createComponent('p', error.message));
+                    const pull = iterator.next();
+                    render(
+                        createComponent(
+                            'p',
+                            `Coin flip result: ${error.message},
+                            Generator pull: ${pull.value} ${pull.done}`,
+                        ),
+                    );
                 }
             },
         },
