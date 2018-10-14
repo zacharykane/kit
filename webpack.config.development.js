@@ -1,13 +1,15 @@
 /* eslint-env node */
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const common = require('./webpack.config.common.js');
 
 module.exports = merge(common, {
     mode: 'development',
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-        contentBase: './public/dist/',
+        contentBase: path.resolve(__dirname, 'public'),
     },
     output: {
         filename: '[name].js',
@@ -32,7 +34,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Output Management',
+            title: 'Output Management | Production',
             template: './src/template.ejs',
         }),
     ],

@@ -1,6 +1,5 @@
 /* eslint-env node */
 const path = require('path');
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
@@ -24,6 +23,5 @@ module.exports = {
             path.resolve(__dirname, 'public', 'dist'),
             path.resolve(__dirname, 'public', 'index.html'),
         ]),
-        new webpack.HashedModuleIdsPlugin(),
     ],
 };

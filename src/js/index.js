@@ -1,5 +1,4 @@
 import Bork from './class';
-import { entries, values } from './spreadRest';
 import { future } from './asyncAwait';
 import createComponent from './createComponent';
 import generator from './generators';
@@ -14,13 +13,23 @@ function render(component) {
 
 render(createComponent('h1', 'Test'));
 
-let myBork = new Bork();
-
-const test = {
-    ...myBork,
-    additive: 'another',
+const obj1 = {
+    key1: 'value1',
+    key2: 'value2',
 };
-console.log(test);
+
+const obj2 = {
+    ...obj1,
+    key3: 'value3',
+    key4: 'value4',
+};
+
+const values = Object.values(obj2);
+const entries = Object.entries(obj2);
+
+console.log(entries, values);
+
+let myBork = new Bork();
 
 //Property initializers are not on the prototype.
 console.log(myBork.__proto__.boundFunction); // > undefined
@@ -30,8 +39,6 @@ console.log(myBork.boundFunction.call(undefined)); // > "bork"
 
 //Static function exists on the class.
 console.log(Bork.staticFunction()); // > "babelIsCool"
-
-console.log(entries, values);
 
 for (var n of fibonacci) {
     // truncate the sequence at 1000
