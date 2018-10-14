@@ -8,6 +8,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.development.js",
     "build": "webpack --config webpack.config.production.js",
+    "test": "webpack --config webpack.config.test.js && open ./public/dist/test.html",
     "lint": "eslint src/js & stylelint src/css"
   },
   "repository": {
@@ -46,6 +47,7 @@
     "style-loader": "^0.23.0",
     "stylelint": "^9.6.0",
     "stylelint-config-recommended": "^2.1.0",
+    "tape": "^4.9.1",
     "terser-webpack-plugin": "^1.1.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.1",
