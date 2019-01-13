@@ -11,7 +11,11 @@ const createComponent = (tag, content, attributes, properties) => {
             element[prop.name] = prop.value;
         });
 
-    element.innerHTML = content;
+    if (typeof content !== 'object') {
+        element.appendChild(document.createTextNode(content));
+    } else {
+        element.appendChild(content);
+    }
 
     return element;
 };
