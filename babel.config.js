@@ -5,7 +5,6 @@ const presets = [
         {
             debug: true,
             modules: false,
-            useBuiltIns: 'usage',
         },
     ],
 ];
