@@ -7,6 +7,7 @@ const presets = [
             modules: false,
         },
     ],
+    '@babel/preset-react',
 ];
 
 const plugins = ['@babel/plugin-proposal-class-properties'];
