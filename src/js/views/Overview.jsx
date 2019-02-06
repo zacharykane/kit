@@ -27,7 +27,7 @@ const Overview = props => {
 };
 
 Overview.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
 };
 
 export default Overview;
