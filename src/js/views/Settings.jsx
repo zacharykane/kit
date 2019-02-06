@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { headerTextStyles, contentTextStyles } from '../styles';
+
 const Settings = props => {
     const changeName = e => {
         props.changeName(e.target.value);
@@ -8,7 +10,7 @@ const Settings = props => {
 
     return (
         <section
-            style={{
+            css={{
                 position: 'absolute',
                 top: 0,
                 right: 0,
@@ -16,8 +18,19 @@ const Settings = props => {
                 left: 0,
             }}
         >
-            <h1>Settings</h1>
-            <input type="text" value={props.name} onChange={changeName} />
+            <h1 css={headerTextStyles}>Settings</h1>
+            <input
+                css={contentTextStyles}
+                type="text"
+                value={props.name}
+                onChange={changeName}
+            />
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Nesciunt ut ex aut voluptates tempore fuga omnis reprehenderit
+                temporibus praesentium molestias perferendis sequi, placeat
+                magnam rerum repellendus dolor consequatur totam doloremque.
+            </p>
         </section>
     );
 };
