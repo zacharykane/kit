@@ -14,27 +14,9 @@ module.exports = merge(common, {
     output: {
         filename: '[name].js',
     },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    { loader: 'style-loader', options: { sourceMap: true } },
-                    {
-                        loader: 'css-loader',
-                        options: { sourceMap: true, importLoaders: 1 },
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: { ident: 'postcss', sourceMap: true },
-                    },
-                ],
-            },
-        ],
-    },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Output Management | Production',
+            title: 'Output Management | Development',
             template: './src/template.ejs',
         }),
     ],

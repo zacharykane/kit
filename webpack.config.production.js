@@ -2,8 +2,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const common = require('./webpack.config.common.js');
@@ -14,28 +12,7 @@ module.exports = merge(common, {
     output: {
         filename: '[name].[contenthash].js',
     },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: { sourceMap: true, importLoaders: 1 },
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: { ident: 'postcss', sourceMap: true },
-                    },
-                ],
-            },
-        ],
-    },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'theme.[id].[contenthash].css',
-        }),
         new HtmlWebpackPlugin({
             title: 'Output Management | Production',
             template: './src/template.ejs',
@@ -50,7 +27,6 @@ module.exports = merge(common, {
                 parallel: true,
                 sourceMap: true,
             }),
-            new OptimizeCSSAssetsPlugin(),
         ],
         splitChunks: {
             cacheGroups: {

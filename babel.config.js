@@ -1,33 +1,23 @@
 /* eslint-env node */
-const presets = ['@babel/preset-react', '@emotion/babel-preset-css-prop'];
-
-const plugins = ['@babel/plugin-proposal-class-properties'];
-
+/* eslint-disable no-console */
 module.exports = api => {
-    if (api.env('test')) {
-        // compile ESModules to CommonJS for Jest
-        presets.unshift([
+    console.log('Babel ran under:', api.env());
+
+    const presets = [
+        [
             '@babel/preset-env',
             {
-                debug: true,
+                debug: api.env(['development', 'test']),
+                modules: api.env('test') ? 'commonjs' : false,
             },
-        ]);
+        ],
+        '@babel/preset-react',
+        '@emotion/babel-preset-css-prop',
+    ];
 
-        return {
-            presets,
-            plugins,
-        };
-    }
+    const plugins = ['@babel/plugin-proposal-class-properties'];
 
     api.cache.forever();
-
-    presets.unshift([
-        '@babel/preset-env',
-        {
-            debug: true,
-            modules: false,
-        },
-    ]);
 
     return { presets, plugins };
 };
