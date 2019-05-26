@@ -19,9 +19,11 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin([
-            path.resolve(__dirname, 'public', 'dist'),
-            path.resolve(__dirname, 'public', 'index.html'),
-        ]),
+        new CleanWebpackPlugin({
+            cleanAfterEveryBuildPatterns: [
+                path.resolve(__dirname, 'public', 'dist'),
+                path.resolve(__dirname, 'public', 'index.html'),
+            ],
+        }),
     ],
 };
