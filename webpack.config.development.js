@@ -19,7 +19,7 @@ module.exports = merge(common, {
             {
                 test: /\.css$/,
                 use: [
-                    { loader: 'style-loader', options: { sourceMap: true } },
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: { sourceMap: true, importLoaders: 1 },

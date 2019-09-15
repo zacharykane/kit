@@ -19,7 +19,12 @@ module.exports = merge(common, {
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
                     {
                         loader: 'css-loader',
                         options: { sourceMap: true, importLoaders: 1 },
@@ -34,7 +39,8 @@ module.exports = merge(common, {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'theme.[id].[contenthash].css',
+            filename: 'theme.[contenthash].css',
+            chunkFilename: 'theme.[id][contenthash].css',
         }),
         new HtmlWebpackPlugin({
             title: 'Output Management | Production',
@@ -50,7 +56,11 @@ module.exports = merge(common, {
                 parallel: true,
                 sourceMap: true,
             }),
-            new OptimizeCSSAssetsPlugin(),
+            new OptimizeCSSAssetsPlugin({
+                cssProcessorOptions: {
+                    map: { inline: false },
+                },
+            }),
         ],
         splitChunks: {
             cacheGroups: {

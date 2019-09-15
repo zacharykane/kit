@@ -65,7 +65,7 @@ render(
                             createComponent(
                                 'p',
                                 `Coin flip result: ${result},
-                            Generator pull: ${pull.value} ${pull.done}`,
+                                Generator pull: ${pull.value} ${pull.done}`,
                             ),
                         );
                     } catch (error) {
@@ -74,7 +74,7 @@ render(
                             createComponent(
                                 'p',
                                 `Coin flip result: ${error.message},
-                            Generator pull: ${pull.value} ${pull.done}`,
+                                Generator pull: ${pull.value} ${pull.done}`,
                             ),
                         );
                     }
