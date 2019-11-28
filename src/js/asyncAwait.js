@@ -14,6 +14,7 @@ export async function future() {
     try {
         return await coinFlip();
     } catch (e) {
+        console.error(e);
         throw e;
     }
 }
