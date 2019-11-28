@@ -17,11 +17,5 @@ module.exports = {
         ecmaFeatures: {
             impliedStrict: true
         }
-    },
-    rules: {
-        'linebreak-style': [
-            'warn',
-            'unix'
-        ]
     }
 };
