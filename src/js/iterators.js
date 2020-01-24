@@ -6,9 +6,9 @@ const fibonacci = {
             next() {
                 [pre, cur] = [cur, pre + cur];
                 return { done: false, value: cur };
-            },
+            }
         };
-    },
+    }
 };
 
 export default fibonacci;

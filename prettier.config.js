@@ -4,15 +4,15 @@ module.exports = {
     useTabs: false,
     printWidth: 80,
     singleQuote: true,
-    trailingComma: 'all',
-    overrides: [
+    railingComma: 'all',
+    oerrides: [
         {
             files: ['.*', '*.json', '.*.json', 'public/site.webmanifest'],
             options: {
                 parser: 'json',
                 tabWidth: 2,
-                useTabs: false,
-            },
-        },
-    ],
+                useTabs: false
+            }
+        }
+    ]
 };

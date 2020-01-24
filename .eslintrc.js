@@ -9,8 +9,8 @@ module.exports = {
         'eslint:recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
+        'plugin:compat/recommended',
         'plugin:prettier/recommended',
-        'plugin:compat/recommended'
     ],
     parserOptions: {
         ecmaVersion: 10,
