@@ -4,9 +4,9 @@ const presets = [
         '@babel/preset-env',
         {
             debug: true,
-            modules: false
-        }
-    ]
+            modules: false,
+        },
+    ],
 ];
 
 const plugins = ['@babel/plugin-proposal-class-properties'];

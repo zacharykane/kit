@@ -12,7 +12,7 @@ module.exports = merge(common, {
     mode: 'production',
     devtool: 'source-map',
     output: {
-        filename: '[name].[contenthash].js'
+        filename: '[name].[contenthash].js',
     },
     module: {
         rules: [
@@ -22,31 +22,31 @@ module.exports = merge(common, {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            sourceMap: true
-                        }
+                            sourceMap: true,
+                        },
                     },
                     {
                         loader: 'css-loader',
-                        options: { sourceMap: true, importLoaders: 1 }
+                        options: { sourceMap: true, importLoaders: 1 },
                     },
                     {
                         loader: 'postcss-loader',
-                        options: { ident: 'postcss', sourceMap: true }
-                    }
-                ]
-            }
-        ]
+                        options: { ident: 'postcss', sourceMap: true },
+                    },
+                ],
+            },
+        ],
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'theme.[contenthash].css',
-            chunkFilename: 'theme.[id][contenthash].css'
+            chunkFilename: 'theme.[id][contenthash].css',
         }),
         new HtmlWebpackPlugin({
             title: 'Output Management | Production',
             template: './src/template.ejs',
-            filename: path.resolve(__dirname, 'public', 'index.html')
-        })
+            filename: path.resolve(__dirname, 'public', 'index.html'),
+        }),
     ],
     optimization: {
         runtimeChunk: 'single',
@@ -54,22 +54,22 @@ module.exports = merge(common, {
             new TerserPlugin({
                 cache: true,
                 parallel: true,
-                sourceMap: true
+                sourceMap: true,
             }),
             new OptimizeCSSAssetsPlugin({
                 cssProcessorOptions: {
-                    map: { inline: false }
-                }
-            })
+                    map: { inline: false },
+                },
+            }),
         ],
         splitChunks: {
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/].*\.js$/,
                     name: 'vendors',
-                    chunks: 'all'
-                }
-            }
-        }
-    }
+                    chunks: 'all',
+                },
+            },
+        },
+    },
 });

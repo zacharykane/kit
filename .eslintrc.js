@@ -16,7 +16,7 @@ module.exports = {
         ecmaVersion: 10,
         sourceType: 'module',
         ecmaFeatures: {
-            impliedStrict: true
-        }
-    }
+            impliedStrict: true,
+        },
+    },
 };

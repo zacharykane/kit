@@ -1,5 +1,4 @@
 import test from 'tape';
-
 import Bork from './class';
 
 test('class test', t => {

@@ -11,10 +11,10 @@ module.exports = merge(common, {
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
         host: '0.0.0.0',
-        port: 3000
+        port: 3000,
     },
     output: {
-        filename: '[name].js'
+        filename: '[name].js',
     },
     module: {
         rules: [
@@ -24,20 +24,20 @@ module.exports = merge(common, {
                     'style-loader',
                     {
                         loader: 'css-loader',
-                        options: { sourceMap: true, importLoaders: 1 }
+                        options: { sourceMap: true, importLoaders: 1 },
                     },
                     {
                         loader: 'postcss-loader',
-                        options: { ident: 'postcss', sourceMap: true }
-                    }
-                ]
-            }
-        ]
+                        options: { ident: 'postcss', sourceMap: true },
+                    },
+                ],
+            },
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Output Management | Development',
-            template: './src/template.ejs'
-        })
-    ]
+            template: './src/template.ejs',
+        }),
+    ],
 });

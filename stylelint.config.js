@@ -1,4 +1,4 @@
 /* eslint-env node */
 module.exports = {
-    extends: ['stylelint-config-recommended', 'stylelint-prettier/recommended']
+    extends: ['stylelint-config-recommended', 'stylelint-prettier/recommended'],
 };

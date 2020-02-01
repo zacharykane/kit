@@ -5,8 +5,8 @@ module.exports = {
         postcssPresetEnv({
             stage: 2,
             features: {
-                'nesting-rules': true
-            }
-        })
-    ]
+                'nesting-rules': true,
+            },
+        }),
+    ],
 };
