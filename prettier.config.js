@@ -5,7 +5,7 @@ module.exports = {
     printWidth: 80,
     singleQuote: true,
     trailingComma: 'all',
-    oerrides: [
+    overrides: [
         {
             files: ['.*', '*.json', '.*.json', 'public/site.webmanifest'],
             options: {
