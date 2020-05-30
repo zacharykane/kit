@@ -1,9 +1,6 @@
-FROM node:latest
-
-WORKDIR /home/app
-USER node
-ENV PORT 3000
-
-EXPOSE 3000
-
-ENTRYPOINT /bin/bash
+FROM node:12
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY ./ ./
+ENTRYPOINT [ "npm", "run", "watch" ]

@@ -11,7 +11,7 @@ module.exports = merge(common, {
     devServer: {
         contentBase: path.resolve(__dirname, 'public'),
         host: '0.0.0.0',
-        port: 3000,
+        port: 1995,
     },
     output: {
         filename: '[name].js',

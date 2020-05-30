@@ -1,9 +1,14 @@
 version: '3'
 services:
-    node_dev_env:
+    node:
         build: .
-        container_name: node-dev
-        ports:
-            - 8080:3000
         volumes:
-            - ./:/home/app
+            - ./:/usr/src/app
+    nginx:
+        image: 'nginx:stable-alpine'
+        ports:
+            - 1995:80
+        volumes:
+            - ./public:/usr/share/nginx/html
+        depends_on:
+            - node

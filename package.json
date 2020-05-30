@@ -2,11 +2,10 @@
   "name": "kit",
   "version": "4.0.0",
   "description": "a simple client-side development setup",
-  "sideEffects": [
-    "*.css"
-  ],
+  "sideEffects": ["*.css"],
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.config.development.js",
+    "watch": "webpack --watch --config webpack.config.production.js",
     "build": "webpack --config webpack.config.production.js",
     "test": "webpack --config webpack.config.test.js && open ./public/dist/test.html",
     "lint": "eslint src/js && stylelint src/css"
@@ -15,11 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/zacharykane/kit.git"
   },
-  "keywords": [
-    "starter",
-    "development",
-    "client"
-  ],
+  "keywords": ["starter", "development", "client"],
   "author": "zacharykane",
   "license": "MIT",
   "bugs": {
