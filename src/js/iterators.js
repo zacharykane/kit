@@ -11,4 +11,4 @@ const fibonacci = {
     },
 };
 
-export default fibonacci;
+export { fibonacci };

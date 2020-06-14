@@ -1,13 +1,13 @@
-const createComponent = (tag, content, attributes, properties) => {
+function createComponent(tag, content, attributes, properties) {
     const element = document.createElement(tag);
 
     attributes &&
-        attributes.forEach(attr => {
+        attributes.forEach((attr) => {
             element.setAttribute(attr.name, attr.value);
         });
 
     properties &&
-        properties.forEach(prop => {
+        properties.forEach((prop) => {
             element[prop.name] = prop.value;
         });
 
@@ -18,6 +18,6 @@ const createComponent = (tag, content, attributes, properties) => {
     }
 
     return element;
-};
+}
 
-export default createComponent;
+export { createComponent };

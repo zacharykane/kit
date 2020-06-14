@@ -1,26 +1,22 @@
 /* eslint-env node */
+const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = require('./webpack.config.common.js');
 
 module.exports = merge(common, {
-    mode: 'none',
-    entry: {
-        bundle: './src/js/index.test.js',
-    },
+    mode: 'development',
+    devtool: 'cheap-module-eval-source-map',
     output: {
-        filename: 'test.js',
-    },
-    node: {
-        fs: 'empty',
+        filename: '[name].js',
     },
     module: {
         rules: [
             {
                 test: /\.css$/,
                 use: [
-                    { loader: 'style-loader', options: { sourceMap: true } },
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: { sourceMap: true, importLoaders: 1 },
@@ -35,9 +31,9 @@ module.exports = merge(common, {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Output Management | Testing',
-            template: './src/template.ejs',
-            filename: 'test.html',
+            title: 'Output Management | Development',
+            template: path.resolve(__dirname, 'src', 'template.ejs'),
+            filename: path.resolve(__dirname, 'public', 'index.html'),
         }),
     ],
 });

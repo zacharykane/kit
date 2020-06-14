@@ -1,4 +1,4 @@
-export default function*() {
+function* gen() {
     let pre = 0;
 
     for (let cur = 1; cur < 100; cur += temp) {
@@ -7,3 +7,5 @@ export default function*() {
         yield cur;
     }
 }
+
+export { gen };

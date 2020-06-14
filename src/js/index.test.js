@@ -1,7 +1,7 @@
 import test from 'tape';
 import Bork from './class';
 
-test('class test', t => {
+test('class test', (t) => {
     t.plan(3);
 
     const myBork = new Bork();

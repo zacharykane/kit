@@ -2,13 +2,14 @@ version: '3'
 services:
     node:
         build: .
+        entrypoint: ['/bin/bash']
         volumes:
             - ./:/usr/src/app
+        depends_on:
+            - nginx
     nginx:
         image: 'nginx:stable-alpine'
         ports:
             - 1995:80
         volumes:
             - ./public:/usr/share/nginx/html
-        depends_on:
-            - node

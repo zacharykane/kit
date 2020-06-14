@@ -7,9 +7,9 @@ class Bork {
 
     //Static class properties
     static staticProperty = 'babelIsCool';
-    static staticFunction = function() {
+    static staticFunction = function () {
         return Bork.staticProperty;
     };
 }
 
-export default Bork;
+export { Bork };

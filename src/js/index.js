@@ -1,9 +1,9 @@
 import '../css/master.css';
 import { future } from './asyncAwait';
-import Bork from './class';
-import createComponent from './createComponent';
-import generator from './generators';
-import fibonacci from './iterators';
+import { Bork } from './class';
+import { createComponent } from './createComponent';
+import { gen } from './generators';
+import { fibonacci } from './iterators';
 
 const root = document.getElementById('root');
 function render(component) {
@@ -26,7 +26,7 @@ const obj2 = {
 const entries = Object.entries(obj2);
 
 const frag = document.createDocumentFragment();
-entries.forEach(entry =>
+entries.forEach((entry) =>
     frag.appendChild(createComponent('li', `${entry[0]}: ${entry[1]}`)),
 );
 
@@ -46,7 +46,7 @@ for (var n of fibonacci) {
     );
 }
 
-const iterator = generator();
+const iterator = gen();
 
 render(
     createComponent(

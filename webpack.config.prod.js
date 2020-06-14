@@ -44,7 +44,7 @@ module.exports = merge(common, {
         }),
         new HtmlWebpackPlugin({
             title: 'Output Management | Production',
-            template: './src/template.ejs',
+            template: path.resolve(__dirname, 'src', 'template.ejs'),
             filename: path.resolve(__dirname, 'public', 'index.html'),
         }),
     ],
